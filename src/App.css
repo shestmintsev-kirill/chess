@@ -1,38 +1,203 @@
-.App {
-  text-align: center;
+.app {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(129, 77, 31);
+	background-image: url('./assets/bg.png');
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app img {
+	width: 48px;
+	height: 48px;
+	position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.board {
+	width: calc(64px * 8);
+	height: calc(64px * 8);
+	display: flex;
+	flex-wrap: wrap;
+	border: 15px groove brown;
+	margin-bottom: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.cell {
+	width: 64px;
+	height: 64px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.black {
+	background-color: rgb(126, 101, 72);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.white {
+	background-color: rgb(200, 187, 173);
+}
+
+.selected {
+	background-color: green;
+}
+
+.available {
+	height: 12px;
+	width: 12px;
+	border-radius: 50%;
+	background-color: rgb(153, 187, 255);
+	box-shadow: 0 0 2px 5px rgb(102, 102, 255);
+}
+
+.lost {
+	height: calc(50vh - 60px);
+	width: 120px;
+	padding: 20px;
+	margin-left: 30px;
+	background-color: lightgrey;
+	box-shadow: 0px 0px 5px 5px lightgrey;
+}
+
+.lost_title {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.lost_item {
+	margin-top: 10px;
+}
+
+.loss {
+	height: 200px;
+	width: 300px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(200, 196, 193);
+	border-radius: 40px;
+	border: 15px groove brown;
+	z-index: 2;
+}
+
+.loss-wrapper {
+	height: 100vh;
+	width: 100vw;
+	backdrop-filter: grayscale(85%) blur(4px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	z-index: 3;
+}
+
+.word__numeric {
+	display: flex;
+	padding: 0 15px 0 15px;
+}
+
+.word__numeric_item-word {
+	width: 64px;
+	display: flex;
+	justify-content: center;
+	font-size: 24px;
+	font-weight: bold;
+	color: #fff;
+	margin-top: 10px;
+}
+.word__numeric_item-number {
+	margin-left: 10px;
+	height: 64px;
+	display: flex;
+	align-items: center;
+	font-weight: bold;
+	font-size: 24px;
+	color: #fff;
+}
+
+.currentPleerColor {
+	margin-left: 10px;
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	z-index: 2;
+	margin-bottom: 5px;
+}
+
+.currentPleer {
+	font-weight: bold;
+	font-size: 20px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.timer__wrapper {
+	color: #fff;
+	font-size: 24px;
+	height: 250px;
+	font-weight: bold;
+	margin-right: 20px;
+	display: flex;
+	flex-direction: column-reverse;
+
+	justify-content: space-around;
+	text-align: center;
+}
+
+.btn {
+	width: 180px;
+	height: 60px;
+	color: #fff;
+	border-radius: 5px;
+	padding: 10px 25px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 500;
+	background: transparent;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	position: relative;
+	display: inline-block;
+	box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+		4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+	outline: none;
+	margin-top: 20px;
+}
+.style-btn {
+	background: rgb(255, 151, 0);
+	border: none;
+	z-index: 1;
+}
+.style-btn:after {
+	position: absolute;
+	content: '';
+	width: 100%;
+	height: 0;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	border-radius: 5px;
+	background-color: #eaf818;
+	background-image: linear-gradient(315deg, #eaf818 0%, #f6fc9c 74%);
+	box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+		4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+}
+.style-btn:hover {
+	color: #000;
+}
+.style-btn:hover:after {
+	top: auto;
+	bottom: 0;
+	height: 100%;
+}
+.style-btn:active {
+	top: 2px;
 }
