@@ -54,7 +54,7 @@ export const BoardComponent: FC<BoardProps> = ({
 		<>
 			<div>
 				<div className="currentPleer">
-					Текущий ход -
+					Сurrent move -
 					<div
 						className="currentPleerColor"
 						style={{ background: currentPleer?.color }}

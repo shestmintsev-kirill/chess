@@ -59,7 +59,7 @@ export const Timer: FC<TimerProps> = ({ currentPleer, isLoss, restart, setIsLoss
 					<div className="loss">
 						<h1>Pleer {currentPleer?.color} loss</h1>
 						<button className="btn style-btn" onClick={() => handleRestart()}>
-							Начать новую партию
+							Start a new game
 						</button>
 					</div>
 				</div>
