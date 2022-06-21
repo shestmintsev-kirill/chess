@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect } from 'react'
 import { Board } from '../models/Board'
 import { Cell } from '../models/Cell'
 import { Pleer } from '../models/Pleer'
